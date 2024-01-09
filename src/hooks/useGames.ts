@@ -19,10 +19,9 @@ const useGames = () => {
     const controller = new AbortController();
 
     apiClient
-      .get<FetchGamesResponce>("/games", { signal: controller.signal })
+      .get<FetchGamesResponce>("/games", {signal: controller.signal})
       .then((res) => setGames(res.data.results))
       .catch((err) => setError(err.message));
-      
   }, []);
 
   return { games, error };
